@@ -33,6 +33,8 @@ jobs:
 
       run: |
          echo $ENCODED_STRING
+         echo "Hello World"
+         echo "Hello World" > keystore-b64.txt
          ls
          echo $ENCODED_STRING > keystore-b64.txt
          base64 -d keystore-b64.txt > $SIGNING_KEY_STORE_PATH
