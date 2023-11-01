@@ -36,7 +36,7 @@ public class NfcSniffer extends Activity {
         Log.d("NfcSniffer", "onCreate " + intent);
 
         mPendingIntent = PendingIntent.getActivity(this, 0,
-                new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), 0);
+                new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), PendingIntent.FLAG_IMMUTABLE);
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
         //NfcAdapter.ReaderCallback readerCallback;
 
