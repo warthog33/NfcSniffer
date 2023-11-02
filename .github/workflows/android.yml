@@ -35,6 +35,7 @@ jobs:
          echo $ENCODED_STRING | wc
          echo "SGVsbG8gV29ybGQK" | base64 -d
          echo "Dave was here"
+         echo $SIGNING_KEY_STORE_PATH | wc
          echo $ENCODED_STRING | base64 -d > $SIGNING_KEY_STORE_PATH
          ls -l $SIGNING_KEY_STORE_PATH
     #2
