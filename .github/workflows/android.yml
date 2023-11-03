@@ -22,9 +22,9 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
-    - name: Build with Gradle
-      #run: ./gradlew build
-      #run: ./gradlew assembleRelease
+    #- name: Build with Gradle
+    #  #run: ./gradlew build
+    #  #run: ./gradlew assembleRelease
 
     #1
     - name: Decode Keystore
@@ -38,7 +38,7 @@ jobs:
     #2
     - name: Build Release apk
       env:
-         SIGNING_KEY_STORE_PATH: signingkeystore.jks
+         SIGNING_STORE_FILENAME: signingkeystore.jks
          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
