@@ -15,7 +15,8 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file(System.getenv("HOME") + "/DavesAndroidSigningKeyStore.jks")
+            // Environment variables which must be set properly to enable signing of release APKs/bundles
+            storeFile file(System.getenv("SIGNING_STORE_FILENAME"))
             storePassword System.getenv("SIGNING_STORE_PASSWORD")
             keyAlias System.getenv("SIGNING_KEY_ALIAS")
             keyPassword System.getenv("SIGNING_KEY_PASSWORD")
