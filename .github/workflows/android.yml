@@ -45,6 +45,7 @@ jobs:
          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
       run: |
         SIGNING_STORE_FILENAME=`mktemp`
+        echo $SIGNING_STORE_FILENAME
         echo $ENCODED_STRING | base64 -d > $SIGNING_STORE_FILENAME
         ./gradlew assembleRelease
 
