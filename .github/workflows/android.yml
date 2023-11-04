@@ -43,7 +43,10 @@ jobs:
          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
-      run: ./gradlew assembleRelease
+      run: |
+        SIGNING_STORE_FILENAME=`mktemp`
+        echo $ENCODED_STRING | base64 -d > $SIGNING_STORE_FILENAME
+        ./gradlew assembleRelease
 
     #3
     #- name: Sign app APK
