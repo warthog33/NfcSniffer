@@ -32,8 +32,9 @@ jobs:
          ENCODED_STRING: ${{ secrets.SIGNING_KEY_STORE_BASE64 }}
          
       run: |
-         echo $ENCODED_STRING | wc
-         echo $ENCODED_STRING | base64 -d > signingkeystore.jks
+         export SIGNING_KEY_STORE_FILENAME = `mktemp`
+         echo $SIGNING_KEY_STORE_FILENAME
+         echo $ENCODED_STRING | base64 -d > $SIGNING_KEY_STORE_FILENAME
          ls -l
     #2
     - name: Build Release apk
